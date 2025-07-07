@@ -1,7 +1,8 @@
 
-import { Award, ExternalLink, Calendar } from 'lucide-react';
+import { Award, ExternalLink, Calendar, Eye, Shield, Code2, Database, Users, Zap } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 import { useEffect, useState } from 'react';
 
 const Certifications = () => {
@@ -27,42 +28,113 @@ const Certifications = () => {
 
   const certifications = [
     {
-      title: 'PDEA Angular Jr. & Sr. Developer Certification',
-      issuer: 'Persistent System Limited',
-      date: '2023',
-      image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop',
-      description: 'Comprehensive certification covering Angular framework, component architecture, services, and advanced concepts.',
-      skills: ['Angular', 'TypeScript', 'RxJs', 'Component Design'],
-      credentialUrl: '#'
+      title: 'PDEA Sr Angular Developer',
+      issuer: 'Persistent Systems',
+      date: 'Oct 2023',
+      credentialId: null,
+      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
+      description: 'Advanced Angular certification covering complex application architecture, performance optimization, and enterprise-level development practices.',
+      skills: ['HTML5', 'JSON', 'Angular', 'HTML', 'Bootstrap', 'Git', 'HTTP', 'REST APIs', 'CSS', 'JavaScript', 'Responsive Design', 'Frontend Development'],
+      credentialUrl: null,
+      icon: <Code2 className="w-6 h-6" />,
+      category: 'Angular Development'
     },
     {
-      title: 'Angular, Angular Firebase, and Material',
-      issuer: 'Academind Instructors (Udemy)',
-      date: '2022',
+      title: 'PDEA Jr Angular Developer',
+      issuer: 'Persistent Systems',
+      date: 'Jun 2023',
+      credentialId: null,
+      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
+      description: 'Foundation-level Angular certification covering core concepts, component development, and modern web development practices.',
+      skills: ['HTML5', 'Angular', 'HTML', 'Bootstrap', 'Git', 'HTTP', 'CSS', 'JavaScript', 'Responsive Design', 'Frontend Development'],
+      credentialUrl: null,
+      icon: <Code2 className="w-6 h-6" />,
+      category: 'Angular Development'
+    },
+    {
+      title: 'SQL - Intermediate',
+      issuer: 'HackerRank',
+      date: 'Dec 2022',
+      credentialId: 'd60c8da0b0b3',
+      image: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=300&fit=crop',
+      description: 'Intermediate SQL certification demonstrating proficiency in complex queries, joins, subqueries, and database optimization techniques.',
+      skills: ['SQL', 'Database Management', 'Query Optimization', 'Data Analysis'],
+      credentialUrl: '#',
+      icon: <Database className="w-6 h-6" />,
+      category: 'Database'
+    },
+    {
+      title: 'Angular with Angular Material, Firestore & NgRx',
+      issuer: 'Noble Work Foundation',
+      date: 'Nov 2022',
+      credentialId: 'UC-f4fd23f0-6a7b-470d-9076-7a13e252046f',
       image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop',
-      description: 'Advanced Angular development with Firebase integration and Material Design implementation.',
-      skills: ['Angular', 'Firebase', 'Material Design', 'Authentication'],
-      credentialUrl: '#'
+      description: 'Comprehensive Angular certification covering Material Design, Firebase integration, and state management with NgRx.',
+      skills: ['Angular', 'Material Design', 'Firebase', 'Firestore', 'NgRx', 'State Management'],
+      credentialUrl: '#',
+      icon: <Zap className="w-6 h-6" />,
+      category: 'Full Stack Development'
     },
     {
-      title: 'React.js Advanced Developer',
-      issuer: 'Professional Development',
-      date: '2022',
-      image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=300&fit=crop',
-      description: 'Advanced React.js concepts including hooks, context API, performance optimization, and testing.',
-      skills: ['React.js', 'Hooks', 'Context API', 'Performance'],
-      credentialUrl: '#'
+      title: 'Software AG Certified API Management Professional',
+      issuer: 'Software AG',
+      date: 'Dec 2022',
+      expired: 'Dec 2024',
+      credentialId: null,
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop',
+      description: 'Professional certification in API management, covering design, security, monitoring, and lifecycle management of enterprise APIs.',
+      skills: ['REST APIs', 'API Management', 'API Security', 'Enterprise Integration'],
+      credentialUrl: '#',
+      icon: <Shield className="w-6 h-6" />,
+      category: 'API Management'
     },
     {
-      title: 'Shopify Development Specialist',
-      issuer: 'Shopify Partners',
-      date: '2021',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop',
-      description: 'Specialized certification in Shopify theme development, Liquid templating, and headless commerce.',
-      skills: ['Shopify', 'Liquid', 'GraphQL', 'E-commerce'],
-      credentialUrl: '#'
+      title: 'Software AG Certified webMethods.io Integration Professional',
+      issuer: 'Software AG',
+      date: 'Dec 2022',
+      expired: 'Dec 2024',
+      credentialId: null,
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop',
+      description: 'Professional certification in webMethods.io integration platform for building and managing enterprise integrations.',
+      skills: ['Integration Platforms', 'Enterprise Integration', 'Workflow Management', 'API Integration'],
+      credentialUrl: '#',
+      icon: <Users className="w-6 h-6" />,
+      category: 'Integration'
+    },
+    {
+      title: 'CCBP 4.0 Intensive Certificate - JavaScript',
+      issuer: 'NxtWave',
+      date: 'Feb 2022',
+      credentialId: 'YVZ79V825G',
+      image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=300&fit=crop',
+      description: 'Intensive JavaScript certification covering modern ES6+ features, DOM manipulation, and advanced programming concepts.',
+      skills: ['JavaScript', 'ES6+', 'DOM Manipulation', 'Asynchronous Programming'],
+      credentialUrl: '#',
+      icon: <Code2 className="w-6 h-6" />,
+      category: 'JavaScript Development'
+    },
+    {
+      title: 'HAM Radio License',
+      issuer: 'Ministry of Telecommunications India',
+      date: 'Jan 2018',
+      credentialId: null,
+      image: 'https://images.unsplash.com/photo-1588508065123-287b28e013da?w=400&h=300&fit=crop',
+      description: 'Amateur radio operator license demonstrating knowledge of radio communications, electronics, and regulations.',
+      skills: ['Radio Communications', 'Electronics', 'Signal Processing'],
+      credentialUrl: null,
+      icon: <Zap className="w-6 h-6" />,
+      category: 'Electronics'
     }
   ];
+
+  // Group certifications by category
+  const groupedCertifications = certifications.reduce((acc, cert) => {
+    if (!acc[cert.category]) {
+      acc[cert.category] = [];
+    }
+    acc[cert.category].push(cert);
+    return acc;
+  }, {} as Record<string, typeof certifications>);
 
   return (
     <section id="certifications" className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
@@ -73,84 +145,184 @@ const Certifications = () => {
           </h2>
           <p className={`text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-1000 delay-200 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
             Continuous learning and professional development through industry-recognized certifications 
-            in modern web technologies and frameworks.
+            in modern web technologies, databases, and enterprise solutions.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {certifications.map((cert, index) => (
-            <Card key={index} className={`group hover-lift border-0 shadow-xl overflow-hidden bg-white/80 backdrop-blur-sm transition-all duration-500 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: `${index * 0.2}s` }}>
-              <div className="relative">
-                <img
-                  src={cert.image}
-                  alt={cert.title}
-                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                
-                {/* Award Icon */}
-                <div className="absolute top-4 right-4">
-                  <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center animate-pulse-glow">
-                    <Award className="w-6 h-6 text-yellow-600" />
-                  </div>
-                </div>
+        {/* Certifications by Category */}
+        {Object.entries(groupedCertifications).map(([category, certs], categoryIndex) => (
+          <div key={category} className="mb-12">
+            <h3 className={`text-2xl font-bold mb-8 text-center gradient-text transition-all duration-1000 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: `${categoryIndex * 0.1}s` }}>
+              {category}
+            </h3>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {certs.map((cert, index) => (
+                <HoverCard key={`${category}-${index}`}>
+                  <HoverCardTrigger asChild>
+                    <Card className={`group hover-lift border-0 shadow-xl overflow-hidden bg-white/80 backdrop-blur-sm transition-all duration-500 cursor-pointer ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: `${(categoryIndex * certs.length + index) * 0.1}s` }}>
+                      <div className="relative">
+                        <img
+                          src={cert.image}
+                          alt={cert.title}
+                          className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        
+                        {/* Category Icon */}
+                        <div className="absolute top-4 right-4">
+                          <div className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center animate-pulse-glow">
+                            {cert.icon}
+                          </div>
+                        </div>
 
-                {/* Date Badge */}
-                <div className="absolute bottom-4 left-4">
-                  <div className="bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-sm font-bold flex items-center gap-2">
-                    <Calendar size={14} />
-                    {cert.date}
-                  </div>
-                </div>
-              </div>
-              
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-2 group-hover:text-purple-600 transition-colors duration-300">
-                  {cert.title}
-                </h3>
-                <p className="text-purple-600 font-semibold mb-3">{cert.issuer}</p>
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                  {cert.description}
-                </p>
-                
-                {/* Skills */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {cert.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 rounded-full text-xs font-medium"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+                        {/* Date Badge */}
+                        <div className="absolute bottom-4 left-4">
+                          <div className="bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-sm font-bold flex items-center gap-2">
+                            <Calendar size={12} />
+                            {cert.date}
+                            {cert.expired && (
+                              <span className="text-red-600 text-xs">• Exp: {cert.expired}</span>
+                            )}
+                          </div>
+                        </div>
 
-                {/* View Credential Button */}
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full border-purple-200 text-purple-600 hover:bg-purple-50 transition-all duration-300"
-                >
-                  <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full">
-                    <ExternalLink size={16} className="mr-2" />
-                    View Credential
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+                        {/* Preview Icon */}
+                        <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="w-8 h-8 bg-purple-600/90 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <Eye size={16} className="text-white" />
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <CardContent className="p-4">
+                        <h4 className="text-lg font-bold mb-2 group-hover:text-purple-600 transition-colors duration-300 line-clamp-2">
+                          {cert.title}
+                        </h4>
+                        <p className="text-purple-600 font-semibold mb-2 text-sm">{cert.issuer}</p>
+                        
+                        {cert.credentialId && (
+                          <p className="text-xs text-gray-500 mb-3">ID: {cert.credentialId}</p>
+                        )}
+
+                        {/* Skills Preview */}
+                        <div className="flex flex-wrap gap-1 mb-3">
+                          {cert.skills.slice(0, 3).map((skill) => (
+                            <span
+                              key={skill}
+                              className="px-2 py-1 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 rounded-full text-xs font-medium"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                          {cert.skills.length > 3 && (
+                            <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">
+                              +{cert.skills.length - 3} more
+                            </span>
+                          )}
+                        </div>
+
+                        {/* View Credential Button */}
+                        {cert.credentialUrl && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="w-full border-purple-200 text-purple-600 hover:bg-purple-50 transition-all duration-300"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              window.open(cert.credentialUrl!, '_blank');
+                            }}
+                          >
+                            <ExternalLink size={14} className="mr-2" />
+                            View Credential
+                          </Button>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </HoverCardTrigger>
+                  
+                  {/* Hover Preview Content */}
+                  <HoverCardContent className="w-80 p-4 bg-white/95 backdrop-blur-md border-purple-200">
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center text-white">
+                          {cert.icon}
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-bold text-gray-900 mb-1">{cert.title}</h4>
+                          <p className="text-sm text-purple-600 font-medium">{cert.issuer}</p>
+                          <p className="text-xs text-gray-500 flex items-center gap-1 mt-1">
+                            <Calendar size={12} />
+                            {cert.date}
+                            {cert.expired && <span className="text-red-600">• Expires: {cert.expired}</span>}
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <p className="text-sm text-gray-700 mb-3">{cert.description}</p>
+                        
+                        {cert.credentialId && (
+                          <p className="text-xs text-gray-600 mb-3">
+                            <strong>Credential ID:</strong> {cert.credentialId}
+                          </p>
+                        )}
+                        
+                        <div>
+                          <p className="text-sm font-semibold text-gray-800 mb-2">Skills Covered:</p>
+                          <div className="flex flex-wrap gap-1">
+                            {cert.skills.map((skill) => (
+                              <span
+                                key={skill}
+                                className="px-2 py-1 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 rounded-full text-xs font-medium"
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </HoverCardContent>
+                </HoverCard>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        {/* Statistics */}
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 transition-all duration-1000 delay-800 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+          <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+            <div className="text-3xl font-bold gradient-text mb-2">{certifications.length}</div>
+            <div className="text-gray-600 font-medium">Total Certifications</div>
+          </div>
+          <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+            <div className="text-3xl font-bold gradient-text mb-2">{Object.keys(groupedCertifications).length}</div>
+            <div className="text-gray-600 font-medium">Categories</div>
+          </div>
+          <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+            <div className="text-3xl font-bold gradient-text mb-2">3+</div>
+            <div className="text-gray-600 font-medium">Years Learning</div>
+          </div>
+          <div className="text-center bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+            <div className="text-3xl font-bold gradient-text mb-2">5+</div>
+            <div className="text-gray-600 font-medium">Technologies</div>
+          </div>
         </div>
 
-        {/* Additional Certifications Note */}
-        <div className={`text-center mt-16 transition-all duration-1000 delay-800 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+        {/* Call to Action */}
+        <div className={`text-center mt-16 transition-all duration-1000 delay-1000 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
             <Award className="w-16 h-16 mx-auto mb-4 text-purple-600" />
             <h3 className="text-2xl font-bold mb-4 font-display">Commitment to Excellence</h3>
-            <p className="text-gray-700 max-w-2xl mx-auto">
+            <p className="text-gray-700 max-w-2xl mx-auto mb-6">
               I believe in continuous learning and staying updated with the latest technologies. 
               These certifications represent my dedication to professional growth and delivering 
-              high-quality solutions to clients and employers.
+              high-quality solutions that drive business results.
             </p>
+            <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105">
+              View All Credentials
+            </Button>
           </div>
         </div>
       </div>
