@@ -1,26 +1,45 @@
 
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone, Linkedin, Github, Send } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      observer.observe(contactSection);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
+      title: "Message sent successfully!",
+      description: "Thank you for reaching out. I'll get back to you within 24 hours.",
     });
     setFormData({ name: '', email: '', message: '' });
   };
@@ -36,59 +55,70 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'john@example.com',
-      link: 'mailto:john@example.com'
+      value: 'satishkumarpallapu.16@gmail.com',
+      link: 'mailto:satishkumarpallapu.16@gmail.com',
+      color: 'text-red-500'
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      value: '+91 7661866186',
+      link: 'tel:+917661866186',
+      color: 'text-green-500'
     },
     {
       icon: MapPin,
       title: 'Location',
-      value: 'San Francisco, CA',
-      link: '#'
+      value: 'Hyderabad, Telangana, 503111',
+      link: '#',
+      color: 'text-blue-500'
+    },
+    {
+      icon: Linkedin,
+      title: 'LinkedIn',
+      value: 'Connect with me',
+      link: 'https://linkedin.com',
+      color: 'text-blue-600'
     }
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Get In <span className="gradient-text">Touch</span>
+          <h2 className={`text-4xl md:text-5xl font-bold mb-6 font-display transition-all duration-1000 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+            Let's Work <span className="gradient-text">Together</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            I'm always interested in new opportunities and collaborations. Let's create something amazing together!
+          <p className={`text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-1000 delay-200 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
+            I'm always interested in new opportunities and exciting projects. 
+            Let's connect and create something amazing together!
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className={`space-y-8 transition-all duration-1000 delay-300 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
             <div>
-              <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
-              <p className="text-gray-600 mb-8">
-                Whether you have a project in mind, want to collaborate, or just want to say hello, 
-                I'd love to hear from you. Drop me a message and I'll get back to you as soon as possible.
+              <h3 className="text-3xl font-bold mb-6 font-display">Get In Touch</h3>
+              <p className="text-gray-600 mb-8 text-lg leading-relaxed">
+                Whether you have a project in mind, want to discuss opportunities, or just want to connect, 
+                I'd love to hear from you. I'm currently available for freelance projects and full-time positions.
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="border-0 shadow-md hover-lift">
+                <Card key={index} className="border-0 shadow-lg hover-lift group">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
-                        <info.icon className="w-6 h-6 text-white" />
+                      <div className={`w-14 h-14 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                        <info.icon className="w-7 h-7 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-800">{info.title}</h4>
+                        <h4 className="font-semibold text-gray-800 text-lg">{info.title}</h4>
                         <a
                           href={info.link}
-                          className="text-gray-600 hover:text-purple-600 transition-colors duration-200"
+                          className={`${info.color} hover:underline transition-colors duration-200 font-medium`}
                         >
                           {info.value}
                         </a>
@@ -99,29 +129,32 @@ const Contact = () => {
               ))}
             </div>
 
+            {/* Portfolio Link */}
             <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 text-white">
-              <h4 className="text-xl font-bold mb-4">Available for Work</h4>
-              <p className="mb-4">
-                I'm currently available for freelance projects and full-time opportunities. 
-                Let's discuss how we can work together.
+              <h4 className="text-xl font-bold mb-4">Check Out My Current Portfolio</h4>
+              <p className="mb-4 opacity-90">
+                Visit my existing portfolio to see more of my work and detailed case studies.
               </p>
               <Button
                 variant="secondary"
-                className="bg-white text-gray-800 hover:bg-gray-100"
+                className="bg-white text-purple-600 hover:bg-gray-100 transition-all duration-300 hover:scale-105"
               >
-                <a href="mailto:john@example.com">Send Email</a>
+                <a href="https://pskportfolio.ccbp.tech/" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                  <Github className="mr-2" size={20} />
+                  View Portfolio
+                </a>
               </Button>
             </div>
           </div>
 
           {/* Contact Form */}
-          <Card className="border-0 shadow-lg">
+          <Card className={`border-0 shadow-2xl bg-white/80 backdrop-blur-sm transition-all duration-1000 delay-500 ${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
+              <h3 className="text-3xl font-bold mb-6 font-display gradient-text">Send a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Name
+                  <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Full Name *
                   </label>
                   <Input
                     id="name"
@@ -130,14 +163,14 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full"
-                    placeholder="Your name"
+                    className="w-full border-2 border-gray-200 focus:border-purple-500 transition-colors duration-300"
+                    placeholder="Your full name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email
+                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Email Address *
                   </label>
                   <Input
                     id="email"
@@ -146,14 +179,14 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full"
+                    className="w-full border-2 border-gray-200 focus:border-purple-500 transition-colors duration-300"
                     placeholder="your@email.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message
+                  <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Message *
                   </label>
                   <Textarea
                     id="message"
@@ -161,19 +194,27 @@ const Contact = () => {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    rows={5}
-                    className="w-full"
-                    placeholder="Tell me about your project..."
+                    rows={6}
+                    className="w-full border-2 border-gray-200 focus:border-purple-500 transition-colors duration-300"
+                    placeholder="Tell me about your project or opportunity..."
                   />
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
+                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 >
+                  <Send className="mr-2" size={20} />
                   Send Message
                 </Button>
               </form>
+
+              {/* Response Time Note */}
+              <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                <p className="text-green-800 text-sm font-medium">
+                  ⚡ Quick Response: I typically respond within 24 hours!
+                </p>
+              </div>
             </CardContent>
           </Card>
         </div>
