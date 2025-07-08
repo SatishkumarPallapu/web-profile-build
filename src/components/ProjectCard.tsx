@@ -21,46 +21,42 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, index, isVisible }: ProjectCardProps) => {
   const IconComponent = project.icon;
-  
-  console.log('ProjectCard rendering:', project.title, 'isVisible:', isVisible);
 
   return (
     <Card 
-      className={`group hover-lift border-0 shadow-xl overflow-hidden bg-white/80 backdrop-blur-sm transition-all duration-500 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} 
+      className="group hover-lift border-0 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-white/90 backdrop-blur-sm opacity-100 animate-scale-in" 
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       <div className="relative overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-40 sm:h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-          onLoad={() => console.log('Image loaded for:', project.title)}
-          onError={() => console.log('Image failed to load for:', project.title)}
+          className="w-full h-40 sm:h-48 object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         
         {/* Category Badge */}
-        <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
-          <span className="bg-white/90 backdrop-blur-sm text-purple-600 px-2 sm:px-3 py-1 rounded-full text-xs font-bold">
+        <div className="absolute top-2 sm:top-3 left-2 sm:left-3">
+          <span className="bg-white/90 backdrop-blur-sm text-purple-600 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold">
             {project.category}
           </span>
         </div>
 
         {/* Project Icon */}
-        <div className="absolute top-3 sm:top-4 right-3 sm:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute top-2 sm:top-3 right-2 sm:right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <div className="w-8 sm:w-10 h-8 sm:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center">
             <IconComponent size={16} className="sm:w-5 sm:h-5 text-purple-600" />
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-          <Button size="sm" className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 p-2 rounded-full">
+        <div className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <Button size="sm" className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 p-2 rounded-full shadow-lg">
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
               <ExternalLink size={14} className="sm:w-4 sm:h-4" />
             </a>
           </Button>
-          <Button size="sm" className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 p-2 rounded-full">
+          <Button size="sm" className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 p-2 rounded-full shadow-lg">
             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
               <Github size={14} className="sm:w-4 sm:h-4" />
             </a>
@@ -68,32 +64,44 @@ const ProjectCard = ({ project, index, isVisible }: ProjectCardProps) => {
         </div>
       </div>
       
-      <CardContent className="p-4 sm:p-6">
-        <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:text-purple-600 transition-colors duration-300 line-clamp-2">
+      <CardContent className="p-3 sm:p-4 lg:p-6">
+        <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 group-hover:text-purple-600 transition-colors duration-300 line-clamp-2">
           {project.title}
         </h3>
-        <p className="text-gray-600 mb-3 sm:mb-4 text-sm leading-relaxed line-clamp-3">
+        <p className="text-gray-600 mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed line-clamp-3">
           {project.description}
         </p>
         
-        <div className="flex flex-wrap gap-1 sm:gap-2">
-          {project.tech.map((tech, techIndex) => (
+        <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
+          {project.tech.slice(0, 4).map((tech, techIndex) => (
             <span
               key={tech}
-              className="px-2 sm:px-3 py-1 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 rounded-full text-xs font-medium hover:from-purple-200 hover:to-blue-200 transition-colors duration-300"
-              style={{ animationDelay: `${techIndex * 0.1}s` }}
+              className="px-2 sm:px-3 py-1 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 rounded-full text-xs font-medium"
             >
               {tech}
             </span>
           ))}
+          {project.tech.length > 4 && (
+            <span className="px-2 sm:px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">
+              +{project.tech.length - 4} more
+            </span>
+          )}
         </div>
 
-        {/* Performance Metrics */}
-        <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-100">
-          <div className="flex justify-between text-xs text-gray-500">
-            <span>🚀 React.js Project</span>
-            <span>📱 Responsive Design</span>
-          </div>
+        {/* Project Links */}
+        <div className="flex gap-2 sm:gap-3">
+          <Button size="sm" className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white text-xs sm:text-sm">
+            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full">
+              <ExternalLink size={14} className="mr-1 sm:mr-2" />
+              Live Demo
+            </a>
+          </Button>
+          <Button variant="outline" size="sm" className="flex-1 text-xs sm:text-sm border-purple-200 hover:bg-purple-50">
+            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full">
+              <Github size={14} className="mr-1 sm:mr-2" />
+              Code
+            </a>
+          </Button>
         </div>
       </CardContent>
     </Card>

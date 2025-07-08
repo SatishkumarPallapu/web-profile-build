@@ -96,21 +96,16 @@ const ProjectGrid = ({ isVisible }: { isVisible: boolean }) => {
     }
   ];
 
-  console.log('ProjectGrid rendering with', projects.length, 'projects, isVisible:', isVisible);
-
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 stagger-animation">
-      {projects.map((project, index) => {
-        console.log('Rendering project:', project.title, 'at index:', index);
-        return (
-          <ProjectCard
-            key={index}
-            project={project}
-            index={index}
-            isVisible={isVisible}
-          />
-        );
-      })}
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+      {projects.map((project, index) => (
+        <ProjectCard
+          key={index}
+          project={project}
+          index={index}
+          isVisible={true}
+        />
+      ))}
     </div>
   );
 };
