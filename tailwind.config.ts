@@ -178,7 +178,7 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'slide-in-left': 'slide-in-left 0.6s ease-out',
 				'slide-in-right': 'slide-in-right 0.6s ease-out',
-				'scale-in': 'scale-in 0.5s ease-out',
+				'scale-in': 'scale-in 0.5s ease-out forwards',
 				'float': 'float 3s ease-in-out infinite',
 				'bounce-horizontal': 'bounce-horizontal 2s ease-in-out infinite',
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',

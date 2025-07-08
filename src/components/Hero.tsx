@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
-  const fullText = "Senior Frontend Developer";
+  const fullText = "Frontend Developer";
 
   useEffect(() => {
     if (currentIndex < fullText.length) {
@@ -63,12 +63,12 @@ const Hero = () => {
             </div>
             <div className="flex items-center gap-2">
               <Phone size={20} className="text-purple-600" />
-              <span>7661866186</span>
+              <span>8367784677</span>
             </div>
           </div>
           
           <p className="text-xl md:text-2xl text-gray-600 mb-8 font-light max-w-4xl mx-auto leading-relaxed animate-slide-in-right">
-            3+ years of experience building fast, responsive, and scalable web applications. 
+            2+ years of experience building fast, responsive, and scalable web applications. 
             Specialized in React.js, Angular, and Shopify development with a passion for creating 
             exceptional user experiences.
           </p>
@@ -112,7 +112,7 @@ const Hero = () => {
               <Github size={28} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="http://www.linkedin.com/in/satish-pallapu-550785373"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-blue-600 transition-all duration-300 hover:scale-125 transform hover:animate-wiggle"
@@ -120,7 +120,7 @@ const Hero = () => {
               <Linkedin size={28} />
             </a>
             <a
-              href="mailto:satishkumarpallapu.16@gmail.com"
+              href="mailto:pallapusatish.19@gmail.com"
               className="text-gray-600 hover:text-red-500 transition-all duration-300 hover:scale-125 transform hover:animate-wiggle"
             >
               <Mail size={28} />

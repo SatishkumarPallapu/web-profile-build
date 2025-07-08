@@ -27,22 +27,22 @@ const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <Code2 className="w-8 h-8 text-purple-400" />
-              <div className="text-2xl font-bold gradient-text font-display">Satish Kumar Pallapu</div>
+              <div className="text-2xl font-bold gradient-text font-display">Satish Kumar</div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Senior Frontend Developer with 3+ years of experience in React.js, Angular, and Shopify development. 
+              Frontend Developer with 2+ years of experience in React.js, Angular, and Shopify development. 
               Passionate about creating exceptional digital experiences that drive business results.
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-gray-300">
                 <Mail size={18} className="text-purple-400" />
                 <a href="mailto:satishkumarpallapu.16@gmail.com" className="hover:text-white transition-colors duration-200">
-                  satishkumarpallapu.16@gmail.com
+                  pallapusatish.19@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-3 text-gray-300">
                 <Phone size={18} className="text-blue-400" />
-                <span>+91 7661866186</span>
+                <span>+91 8367784677</span>
               </div>
               <div className="flex items-center gap-3 text-gray-300">
                 <MapPin size={18} className="text-green-400" />
@@ -97,7 +97,7 @@ const Footer = () => {
             <Github size={24} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="http://www.linkedin.com/in/satish-pallapu-550785373"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-125 transform"
@@ -105,7 +105,7 @@ const Footer = () => {
             <Linkedin size={24} />
           </a>
           <a
-            href="mailto:satishkumarpallapu.16@gmail.com"
+            href="mailto:pallapusatish.19@gmail.com"
             className="text-gray-400 hover:text-red-400 transition-all duration-300 hover:scale-125 transform"
           >
             <Mail size={24} />
@@ -115,7 +115,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {currentYear} Satish Kumar Pallapu. All rights reserved.
+            © {currentYear} Satish Kumar. All rights reserved.
           </p>
           <p className="text-gray-400 text-sm flex items-center">
             Made with <Heart size={16} className="mx-2 text-red-500 animate-pulse" /> and lots of ☕
@@ -131,8 +131,7 @@ const Footer = () => {
               target="_blank" 
               rel="noopener noreferrer"
               className="text-purple-400 hover:text-purple-300 ml-2 underline transition-colors duration-200"
-            >
-              pskportfolio.ccbp.tech
+            >https://satish-portfolio-rho.vercel.app/
             </a>
           </p>
         </div>
