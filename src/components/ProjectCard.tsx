@@ -2,6 +2,7 @@
 import { ExternalLink, Github } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { LucideProps } from 'lucide-react';
 
 interface ProjectCardProps {
   project: {
@@ -11,7 +12,7 @@ interface ProjectCardProps {
     tech: string[];
     liveUrl: string;
     githubUrl: string;
-    icon: React.ComponentType<{ size?: number; className?: string }>;
+    icon: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>;
     category: string;
   };
   index: number;
@@ -19,6 +20,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, index, isVisible }: ProjectCardProps) => {
+  const IconComponent = project.icon;
+
   return (
     <Card 
       className={`group hover-lift border-0 shadow-xl overflow-hidden bg-white/80 backdrop-blur-sm transition-all duration-500 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} 
@@ -42,7 +45,7 @@ const ProjectCard = ({ project, index, isVisible }: ProjectCardProps) => {
         {/* Project Icon */}
         <div className="absolute top-3 sm:top-4 right-3 sm:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <div className="w-8 sm:w-10 h-8 sm:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center">
-            <project.icon size={16} className="sm:w-5 sm:h-5 text-purple-600" />
+            <IconComponent size={16} className="sm:w-5 sm:h-5 text-purple-600" />
           </div>
         </div>
 
