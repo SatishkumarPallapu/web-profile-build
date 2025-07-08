@@ -6,23 +6,33 @@ const ProjectGrid = ({ isVisible }: { isVisible: boolean }) => {
   const projects = [
     {
       title: 'Nxt Trendz (ECommerce Clone - Amazon, Flipkart)',
-      description: 'Implemented Nxt Trendz application which is a clone for ECommerce applications like Amazon, Flipkart where users can login and can see list of products with search, filters, sort by, etc. Features authentication, authorization, JWT tokens and protected routes.',
+      description: 'Implemented Nxt Trendz application(user:rahul, pswd:rahul@2021) which is a clone for ECommerce applications like Amazon, Flipkart where users can login and can see list of products with search, filters, sort by, etc. Features authentication, authorization, JWT tokens and protected routes.',
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
       tech: ['React JS', 'JavaScript', 'CSS', 'Bootstrap', 'REST API', 'JWT Token', 'Local Storage'],
-      liveUrl: 'https://nxttrendz.ccbp.tech/',
+      liveUrl: 'https://ecommercesatish.ccbp.tech/login',
       githubUrl: 'https://github.com/satish-pallapu/nxt-trendz',
       icon: ShoppingCart,
       category: 'E-Commerce'
     },
     {
       title: 'Jobby App',
-      description: 'Implemented Jobby App where users can log in and can see a list of jobs with search by Job title, filters based on Salary range and Employment type. Features authentication, protected routes and JWT token management.',
+      description: 'Implemented Jobby App(user:rahul, pswd:rahul@2021) where users can log in and can see a list of jobs with search by Job title, filters based on Salary range and Employment type. Features authentication, protected routes and JWT token management.',
       image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop',
       tech: ['React JS', 'JavaScript', 'CSS', 'Bootstrap', 'React Router', 'JWT Token', 'REST API'],
-      liveUrl: 'https://jobbyapp.ccbp.tech/',
+      liveUrl: 'https://satishjobbyapp.ccbp.tech/login/',
       githubUrl: 'https://github.com/satish-pallapu/jobby-app',
       icon: Briefcase,
       category: 'Job Portal'
+    },
+    {
+      title: 'Task Manager (Trello Clone)',
+      description: 'Implemented responsive Task manager app like Trello Clone where users can log in and see list of boards, collection of Lists in specific board, and list of tasks with drag and drop functionality.',
+      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop',
+      tech: ['React JS', 'JavaScript', 'CSS', 'Bootstrap', 'React Beautiful DND', 'Trello API', 'React Modal'],
+      liveUrl: 'https://satishtodolist.ccbp.tech/',
+      githubUrl: 'https://github.com/satish-pallapu/task-manager',
+      icon: Users,
+      category: 'Productivity'
     },
     {
       title: 'Nxt Watch (YouTube Clone)',
@@ -83,16 +93,6 @@ const ProjectGrid = ({ isVisible }: { isVisible: boolean }) => {
       githubUrl: 'https://github.com/satish-pallapu/mini-games',
       icon: GamepadIcon,
       category: 'Gaming'
-    },
-    {
-      title: 'Task Manager (Trello Clone)',
-      description: 'Implemented responsive Task manager app like Trello Clone where users can log in and see list of boards, collection of Lists in specific board, and list of tasks with drag and drop functionality.',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop',
-      tech: ['React JS', 'JavaScript', 'CSS', 'Bootstrap', 'React Beautiful DND', 'Trello API', 'React Modal'],
-      liveUrl: 'https://taskmanager.ccbp.tech/',
-      githubUrl: 'https://github.com/satish-pallapu/task-manager',
-      icon: Users,
-      category: 'Productivity'
     }
   ];
 

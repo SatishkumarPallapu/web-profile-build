@@ -141,7 +141,7 @@ const About = () => {
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-4 gradient-text">Professional Summary</h3>
               <p className="text-gray-700 leading-relaxed text-lg">
-                Senior Front-End Developer with 3+ years of hands-on experience in building fast, responsive, and 
+                Front-End Developer with 2+ years of hands-on experience in building fast, responsive, and 
                 scalable web applications and eCommerce solutions. Specialized in Shopify development (themes, 
                 Liquid, headless architecture) and proficient in React.js and Angular 11+ for modern SaaS and 
                 front-end projects. Skilled at implementing UI/UX best practices, optimizing performance, and 
