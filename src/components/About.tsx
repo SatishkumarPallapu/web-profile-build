@@ -130,7 +130,7 @@ const About = () => {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className={`text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-1000 delay-200 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-            Passionate Senior Frontend Developer with 3+ years of experience creating digital solutions 
+            Passionate Fullstack Developer (MEAN/MERN) with 2+ years of experience creating digital solutions 
             that make a difference. I love turning complex problems into simple, beautiful designs.
           </p>
         </div>
