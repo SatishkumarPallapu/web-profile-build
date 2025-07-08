@@ -56,7 +56,7 @@ const Contact = () => {
       icon: Mail,
       title: 'Email',
       value: 'pallapusatish.19@gmail.com',
-      link: 'mailto:pallapusatish.19@gmail.com',
+      link: 'mailto: pallapusatish.19@gmail.com',
       color: 'text-red-500'
     },
     {
