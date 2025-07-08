@@ -28,14 +28,14 @@ const Hero = () => {
   const handleResumeDownload = () => {
     // Create a link to download resume
     const link = document.createElement('a');
-    link.href = 'https://drive.google.com/file/d/1YourResumeFileId/view?usp=sharing'; // Replace with actual resume link
+    link.href = '/Satish_Resume.pdf'; // Replace with actual resume link
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     link.click();
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 px-4 sm:px-6 lg:px-8">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 px-4 sm:px-6 lg:px-8 pt-24">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-60 sm:w-80 h-60 sm:h-80 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float"></div>
@@ -106,7 +106,7 @@ const Hero = () => {
               onClick={handleResumeDownload}
               className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white text-sm sm:text-base"
             >
-              <Download className="mr-2" size={16} className="sm:w-5 sm:h-5" />
+              <Download className="mr-2 sm:w-5 sm:h-5" size={16} />
               Download Resume
             </Button>
           </div>

@@ -55,8 +55,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'satishkumarpallapu.16@gmail.com',
-      link: 'mailto:satishkumarpallapu.16@gmail.com',
+      value: 'pallapusatish.19@gmail.com',
+      link: 'mailto:pallapusatish.19@gmail.com',
       color: 'text-red-500'
     },
     {
@@ -77,7 +77,7 @@ const Contact = () => {
       icon: Linkedin,
       title: 'LinkedIn',
       value: 'Connect with me',
-      link: 'https://linkedin.com',
+      link: 'http://www.linkedin.com/in/satish-pallapu-550785373',
       color: 'text-blue-600'
     }
   ];
@@ -130,7 +130,7 @@ const Contact = () => {
             </div>
 
             {/* Portfolio Link */}
-            <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 text-white">
+            {/* <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 text-white">
               <h4 className="text-xl font-bold mb-4">Check Out My Current Portfolio</h4>
               <p className="mb-4 opacity-90">
                 Visit my existing portfolio to see more of my work and detailed case studies.
@@ -144,7 +144,7 @@ const Contact = () => {
                   View Portfolio
                 </a>
               </Button>
-            </div>
+            </div> */}
           </div>
 
           {/* Contact Form */}
