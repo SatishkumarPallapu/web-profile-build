@@ -21,6 +21,8 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, index, isVisible }: ProjectCardProps) => {
   const IconComponent = project.icon;
+  
+  console.log('ProjectCard rendering:', project.title, 'isVisible:', isVisible);
 
   return (
     <Card 
@@ -32,6 +34,8 @@ const ProjectCard = ({ project, index, isVisible }: ProjectCardProps) => {
           src={project.image}
           alt={project.title}
           className="w-full h-40 sm:h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+          onLoad={() => console.log('Image loaded for:', project.title)}
+          onError={() => console.log('Image failed to load for:', project.title)}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         

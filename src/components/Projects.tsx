@@ -7,9 +7,11 @@ const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    console.log('Projects component mounted');
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          console.log('Projects section is visible');
           setIsVisible(true);
         }
       },
@@ -23,6 +25,8 @@ const Projects = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  console.log('Projects rendering, isVisible:', isVisible);
 
   return (
     <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white via-purple-50 to-blue-50 px-4 sm:px-6 lg:px-8">
