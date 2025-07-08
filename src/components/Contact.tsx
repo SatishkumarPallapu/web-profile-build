@@ -62,8 +62,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      value: '+91 7661866186',
-      link: 'tel:+917661866186',
+      value: '+91 8367784677',
+      link: 'tel:+918367784677',
       color: 'text-green-500'
     },
     {
