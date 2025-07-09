@@ -148,17 +148,6 @@ const Certifications = () => {
       credentialUrl: 'https://certificates.ccbp.in/intensive/developer-foundations?id=F6EB6EYKRY',
       icon: <Code2 className="w-6 h-6" />,
       category: 'Web Development'
-    }, {
-      title: 'CCBP 4.0 Intensive Certificate',
-      issuer: 'NxtWave',
-      date: 'Feb 2022',
-      credentialId: '8IU1EGKFLX',
-      image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=300&fit=crop',
-      description: 'Comprehensive web development certification covering HTML, CSS, JavaScript, and React fundamentals.',
-      skills: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Web Development'],
-      credentialUrl: 'https://certificates.ccbp.in/intensive/flexbox?id=8IU1EGKFLX',
-      icon: <Code2 className="w-6 h-6" />,
-      category: 'Web Development'
     },
     {
       title: 'HAM Radio License',
