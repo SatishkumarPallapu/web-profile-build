@@ -1,5 +1,5 @@
 
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { LucideProps } from 'lucide-react';
@@ -49,16 +49,11 @@ const ProjectCard = ({ project, index, isVisible }: ProjectCardProps) => {
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        {/* Action Button */}
+        <div className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <Button size="sm" className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 p-2 rounded-full shadow-lg">
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
               <ExternalLink size={14} className="sm:w-4 sm:h-4" />
-            </a>
-          </Button>
-          <Button size="sm" className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 p-2 rounded-full shadow-lg">
-            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-              <Github size={14} className="sm:w-4 sm:h-4" />
             </a>
           </Button>
         </div>
@@ -88,18 +83,12 @@ const ProjectCard = ({ project, index, isVisible }: ProjectCardProps) => {
           )}
         </div>
 
-        {/* Project Links */}
-        <div className="flex gap-2 sm:gap-3">
-          <Button size="sm" className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white text-xs sm:text-sm">
+        {/* Project Link */}
+        <div className="flex justify-center">
+          <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white text-xs sm:text-sm">
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full">
               <ExternalLink size={14} className="mr-1 sm:mr-2" />
-              Live Demo
-            </a>
-          </Button>
-          <Button variant="outline" size="sm" className="flex-1 text-xs sm:text-sm border-purple-200 hover:bg-purple-50">
-            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full">
-              <Github size={14} className="mr-1 sm:mr-2" />
-              Code
+              View Live Demo
             </a>
           </Button>
         </div>
