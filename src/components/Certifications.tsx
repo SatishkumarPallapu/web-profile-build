@@ -35,7 +35,7 @@ const Certifications = () => {
       image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
       description: 'Advanced Angular certification covering complex application architecture, performance optimization, and enterprise-level development practices.',
       skills: ['HTML5', 'JSON', 'Angular', 'HTML', 'Bootstrap', 'Git', 'HTTP', 'REST APIs', 'CSS', 'JavaScript', 'Responsive Design', 'Frontend Development'],
-      credentialUrl: null,
+      credentialUrl: "https://drive.google.com/file/d/1NuoL4ylZFXAuRDXU5OSnzGFEeZv2KbBU/view?usp=sharing",
       icon: <Code2 className="w-6 h-6" />,
       category: 'Angular Development'
     },
@@ -47,7 +47,7 @@ const Certifications = () => {
       image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
       description: 'Foundation-level Angular certification covering core concepts, component development, and modern web development practices.',
       skills: ['HTML5', 'Angular', 'HTML', 'Bootstrap', 'Git', 'HTTP', 'CSS', 'JavaScript', 'Responsive Design', 'Frontend Development'],
-      credentialUrl: null,
+      credentialUrl: "https://drive.google.com/file/d/1b4dwHpOlwWX2mRIe_z0DtX9zI2bxp8-R/view",
       icon: <Code2 className="w-6 h-6" />,
       category: 'Angular Development'
     },
@@ -59,7 +59,7 @@ const Certifications = () => {
       image: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=300&fit=crop',
       description: 'Intermediate SQL certification demonstrating proficiency in complex queries, joins, subqueries, and database optimization techniques.',
       skills: ['SQL', 'Database Management', 'Query Optimization', 'Data Analysis'],
-      credentialUrl: '#',
+      credentialUrl: 'https://www.hackerrank.com/certificates/d60c8da0b0b3',
       icon: <Database className="w-6 h-6" />,
       category: 'Database'
     },
@@ -71,7 +71,7 @@ const Certifications = () => {
       image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop',
       description: 'Comprehensive Angular certification covering Material Design, Firebase integration, and state management with NgRx.',
       skills: ['Angular', 'Material Design', 'Firebase', 'Firestore', 'NgRx', 'State Management'],
-      credentialUrl: '#',
+      credentialUrl: 'https://www.udemy.com/certificate/UC-f4fd23f0-6a7b-470d-9076-7a13e252046f/',
       icon: <Zap className="w-6 h-6" />,
       category: 'Full Stack Development'
     },
@@ -84,7 +84,7 @@ const Certifications = () => {
       image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop',
       description: 'Professional certification in API management, covering design, security, monitoring, and lifecycle management of enterprise APIs.',
       skills: ['REST APIs', 'API Management', 'API Security', 'Enterprise Integration'],
-      credentialUrl: '#',
+      credentialUrl: 'https://www.credly.com/badges/d2584559-8ee8-4616-a18a-e993ed163793/',
       icon: <Shield className="w-6 h-6" />,
       category: 'API Management'
     },
@@ -97,7 +97,7 @@ const Certifications = () => {
       image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop',
       description: 'Professional certification in webMethods.io integration platform for building and managing enterprise integrations.',
       skills: ['Integration Platforms', 'Enterprise Integration', 'Workflow Management', 'API Integration'],
-      credentialUrl: '#',
+      credentialUrl: 'https://www.credly.com/badges/8b85ad03-c8a4-4a5b-bec2-a9724afe04cc',
       icon: <Users className="w-6 h-6" />,
       category: 'Integration'
     },
@@ -109,7 +109,7 @@ const Certifications = () => {
       image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=300&fit=crop',
       description: 'Intensive JavaScript certification covering modern ES6+ features, DOM manipulation, and advanced programming concepts.',
       skills: ['JavaScript', 'ES6+', 'DOM Manipulation', 'Asynchronous Programming'],
-      credentialUrl: '#',
+      credentialUrl: 'https://certificates.ccbp.in/intensive/javascript-essentials?id=YVZ79V825G',
       icon: <Code2 className="w-6 h-6" />,
       category: 'JavaScript Development'
     },
@@ -121,7 +121,42 @@ const Certifications = () => {
       image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=300&fit=crop',
       description: 'Comprehensive web development certification covering HTML, CSS, JavaScript, and React fundamentals.',
       skills: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Web Development'],
-      credentialUrl: '#',
+      credentialUrl: 'https://certificates.ccbp.in/intensive/flexbox?id=8IU1EGKFLX',
+      icon: <Code2 className="w-6 h-6" />,
+      category: 'Web Development'
+    },
+
+     {
+      title: 'Build Your Own Static Website',
+      issuer: 'NxtWave',
+      date: 'Feb 2022',
+      credentialId: 'DA722BM0HJ',
+      image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=300&fit=crop',
+      description: 'Comprehensive web development certification covering HTML, CSS, JavaScript, and React fundamentals.',
+      skills: ['HTML', 'CSS', 'JavaScript',],
+      credentialUrl: 'https://certificates.ccbp.in/intensive/static-website?id=DA722BM0HJ',
+      icon: <Code2 className="w-6 h-6" />,
+      category: 'Web Development'
+    }, {
+      title: 'Developer Foundations',
+      issuer: 'NxtWave',
+      date: 'Feb 2022',
+      credentialId: 'F6EB6EYKRY',
+      image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=300&fit=crop',
+      description: 'Comprehensive web development certification covering HTML, CSS, JavaScript, and React fundamentals.',
+      skills: ["Git", "Vercel", "Github Actions", "CI/CD", "Command Line", 'Web Development'],
+      credentialUrl: 'https://certificates.ccbp.in/intensive/developer-foundations?id=F6EB6EYKRY',
+      icon: <Code2 className="w-6 h-6" />,
+      category: 'Web Development'
+    }, {
+      title: 'CCBP 4.0 Intensive Certificate',
+      issuer: 'NxtWave',
+      date: 'Feb 2022',
+      credentialId: '8IU1EGKFLX',
+      image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=300&fit=crop',
+      description: 'Comprehensive web development certification covering HTML, CSS, JavaScript, and React fundamentals.',
+      skills: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Web Development'],
+      credentialUrl: 'https://certificates.ccbp.in/intensive/flexbox?id=8IU1EGKFLX',
       icon: <Code2 className="w-6 h-6" />,
       category: 'Web Development'
     },
