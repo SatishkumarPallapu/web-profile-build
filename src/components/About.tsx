@@ -1,34 +1,35 @@
+
 import { Code2, Palette, Zap, Users, Trophy, Briefcase, GraduationCap, Award } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useEffect, useState } from 'react';
-import AnimatedEngineerKid from './AnimatedEngineerKid';
 
 const About = () => {
-  const [visibleSections, setVisibleSections] = useState<Record<string, boolean>>({});
-  const [activeSection, setActiveSection] = useState<string>('');
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const fallbackTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          const sectionName = entry.target.getAttribute('data-section') || '';
-          setVisibleSections(prev => ({
-            ...prev,
-            [sectionName]: entry.isIntersecting
-          }));
-          
-          if (entry.isIntersecting) {
-            setActiveSection(sectionName);
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          clearTimeout(fallbackTimer);
+        }
       },
-      { threshold: 0.2, rootMargin: '20px' }
+      { threshold: 0.1, rootMargin: '50px' }
     );
 
-    const sections = document.querySelectorAll('[data-section]');
-    sections.forEach(section => observer.observe(section));
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      observer.observe(aboutSection);
+    }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallbackTimer);
+    };
   }, []);
 
   const skills = {
@@ -131,25 +132,30 @@ const About = () => {
     }
   ];
 
+  // Mobile-friendly animation classes - always visible with optional animation
+  const getAnimationClass = (baseDelay = 0) => {
+    return `transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-100 translate-y-0'}`;
+  };
+
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 relative">
+    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16" data-section="header">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display opacity-100">
             About <span className="gradient-text">Me</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto opacity-100">
             Passionate Fullstack Developer (MEAN/MERN) with 2+ years of experience creating digital solutions 
             that make a difference. I love turning complex problems into simple, beautiful designs.
           </p>
         </div>
 
         {/* Professional Summary */}
-        <div className="mb-16" data-section="summary">
+        <div className="mb-16 opacity-100">
           <Card className="hover-lift border-0 shadow-xl bg-white/80 backdrop-blur-sm">
-            <CardContent className="p-6 sm:p-8">
+            <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-4 gradient-text">Professional Summary</h3>
-              <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
+              <p className="text-gray-700 leading-relaxed text-lg">
                 Front-End Developer with 2+ years of hands-on experience in building fast, responsive, and 
                 scalable web applications and eCommerce solutions. Specialized in Shopify development (themes, 
                 Liquid, headless architecture) and proficient in React.js and Angular 11+ for modern SaaS and 
@@ -161,9 +167,9 @@ const About = () => {
         </div>
 
         {/* Achievements */}
-        <div className="mb-16" data-section="achievements">
+        <div className="mb-16 opacity-100">
           <h3 className="text-3xl font-bold text-center mb-12 font-display">Key Achievements</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {achievements.map((achievement, index) => (
               <Card key={index} className="hover-lift border-0 shadow-lg group">
                 <CardContent className="p-6 text-center">
@@ -176,15 +182,15 @@ const About = () => {
           </div>
         </div>
 
-        {/* Experience - Fixed mobile layout */}
-        <div className="mb-16" data-section="experience">
+        {/* Experience */}
+        <div className="mb-16 opacity-100">
           <h3 className="text-3xl font-bold text-center mb-12 font-display">Professional Experience</h3>
           <div className="space-y-8">
             {experiences.map((exp, index) => (
               <Card key={index} className="hover-lift border-0 shadow-xl overflow-hidden">
-                <CardContent className="p-6 sm:p-8">
-                  <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-                    <div className="flex-shrink-0 w-full sm:w-auto flex justify-center sm:justify-start">
+                <CardContent className="p-8">
+                  <div className="flex items-start gap-6">
+                    <div className="flex-shrink-0">
                       <img 
                         src={exp.logo} 
                         alt={exp.logoAlt}
@@ -194,13 +200,13 @@ const About = () => {
                         }}
                       />
                     </div>
-                    <div className="flex-1 w-full">
-                      <div className="flex flex-col gap-4 mb-4">
-                        <div className="text-center sm:text-left">
+                    <div className="flex-1">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <div>
                           <h4 className="text-xl font-bold text-gray-800">{exp.role}</h4>
                           <p className="text-lg font-semibold text-purple-600">{exp.company}</p>
                         </div>
-                        <div className="text-center sm:text-right">
+                        <div className="text-right">
                           <p className="text-gray-600 font-medium">{exp.duration}</p>
                           <p className="text-gray-500">{exp.location}</p>
                         </div>
@@ -208,8 +214,8 @@ const About = () => {
                       <ul className="space-y-2">
                         {exp.highlights.map((highlight, idx) => (
                           <li key={idx} className="flex items-start gap-2 text-gray-700">
-                            <span className="text-purple-600 mt-1 flex-shrink-0">•</span>
-                            <span className="text-sm sm:text-base">{highlight}</span>
+                            <span className="text-purple-600 mt-1">•</span>
+                            <span>{highlight}</span>
                           </li>
                         ))}
                       </ul>
@@ -222,20 +228,20 @@ const About = () => {
         </div>
 
         {/* Education */}
-        <div className="mb-16" data-section="education">
+        <div className="mb-16 opacity-100">
           <h3 className="text-3xl font-bold text-center mb-12 font-display">Education</h3>
-          <div className="grid sm:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {education.map((edu, index) => (
               <Card key={index} className="hover-lift border-0 shadow-lg">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="text-3xl">{edu.icon}</div>
-                    <div className="flex-1">
-                      <h4 className="font-bold text-base sm:text-lg mb-2">{edu.degree}</h4>
-                      <p className="text-purple-600 font-semibold mb-1 text-sm sm:text-base">{edu.institution}</p>
-                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                        <span className="text-gray-600 text-sm">{edu.year}</span>
-                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium w-fit">
+                    <div>
+                      <h4 className="font-bold text-lg mb-2">{edu.degree}</h4>
+                      <p className="text-purple-600 font-semibold mb-1">{edu.institution}</p>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-600">{edu.year}</span>
+                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
                           {edu.grade}
                         </span>
                       </div>
@@ -248,19 +254,19 @@ const About = () => {
         </div>
 
         {/* Skills Section */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 shadow-2xl" data-section="skills">
+        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl opacity-100">
           <h3 className="text-3xl font-bold text-center mb-12 font-display gradient-text">Skills & Technologies</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {Object.entries(skills).map(([category, items]) => (
               <div key={category} className="space-y-4">
-                <h4 className="font-bold text-gray-800 mb-6 text-base sm:text-lg border-b border-purple-200 pb-2">{category}</h4>
+                <h4 className="font-bold text-gray-800 mb-6 text-lg border-b border-purple-200 pb-2">{category}</h4>
                 <div className="space-y-4">
                   {items.map((skill) => (
                     <div key={skill.name} className="space-y-2">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <span className="text-base sm:text-lg">{skill.icon}</span>
-                          <span className="text-xs sm:text-sm font-medium text-gray-700">{skill.name}</span>
+                          <span className="text-lg">{skill.icon}</span>
+                          <span className="text-sm font-medium text-gray-700">{skill.name}</span>
                         </div>
                         <span className="text-xs text-gray-500">{skill.level}%</span>
                       </div>
@@ -278,12 +284,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
-      {/* Animated Engineer Kid */}
-      <AnimatedEngineerKid 
-        isVisible={Object.values(visibleSections).some(Boolean)} 
-        sectionName={activeSection}
-      />
     </section>
   );
 };
