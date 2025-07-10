@@ -1,5 +1,4 @@
-
-import { Heart, Github, Linkedin, Mail, MapPin, Phone, Code2 } from 'lucide-react';
+import { Heart, Linkedin, Mail, MapPin, Phone, Code2 } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -88,14 +87,6 @@ const Footer = () => {
 
         {/* Social Links */}
         <div className="flex justify-center space-x-8 mb-8">
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-125 transform"
-          >
-            <Github size={24} />
-          </a>
           <a
             href="http://www.linkedin.com/in/satish-pallapu-550785373"
             target="_blank"

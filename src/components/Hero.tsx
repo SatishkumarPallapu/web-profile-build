@@ -1,5 +1,4 @@
-
-import { ArrowDown, Github, Linkedin, Mail, Download, MapPin, Phone } from 'lucide-react';
+import { ArrowDown, Linkedin, Mail, Download, MapPin, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 
@@ -28,10 +27,11 @@ const Hero = () => {
   const handleResumeDownload = () => {
     // Create a link to download resume
     const link = document.createElement('a');
-    link.href = '/Satish_Resume.pdf'; // Replace with actual resume link
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
+    link.href = '/Satish Resume.pdf'; // Corrected path to match public folder
+    link.download = 'Satish_Kumar_Resume.pdf';
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -112,15 +112,7 @@ const Hero = () => {
           </div>
 
           {/* Social Links */}
-          <div className="flex justify-center space-x-6 sm:space-x-8 mb-8 sm:mb-12 animate-fade-in-delayed">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-gray-900 transition-all duration-300 hover:scale-125 transform hover:animate-wiggle"
-            >
-              <Github size={24} className="sm:w-7 sm:h-7" />
-            </a>
+          <div className="flex justify-center space-x-8 mb-8 sm:mb-12 animate-fade-in-delayed">
             <a
               href="http://www.linkedin.com/in/satish-pallapu-550785373"
               target="_blank"
