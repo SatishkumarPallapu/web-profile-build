@@ -7,13 +7,19 @@ const About = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Set a fallback to show content after a short delay for mobile devices
+    const fallbackTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 500);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          clearTimeout(fallbackTimer);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1, rootMargin: '50px' } // Reduced threshold and added margin for better mobile detection
     );
 
     const aboutSection = document.getElementById('about');
@@ -21,7 +27,10 @@ const About = () => {
       observer.observe(aboutSection);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallbackTimer);
+    };
   }, []);
 
   const skills = {
@@ -122,21 +131,26 @@ const About = () => {
     }
   ];
 
+  // Mobile-friendly animation classes - always visible with optional animation
+  const getAnimationClass = (baseDelay = 0) => {
+    return `transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-100 translate-y-0'}`;
+  };
+
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-6 font-display transition-all duration-1000 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+          <h2 className={`text-4xl md:text-5xl font-bold mb-6 font-display ${getAnimationClass()}`}>
             About <span className="gradient-text">Me</span>
           </h2>
-          <p className={`text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-1000 delay-200 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
+          <p className={`text-xl text-gray-600 max-w-3xl mx-auto ${getAnimationClass()}`}>
             Passionate Fullstack Developer (MEAN/MERN) with 2+ years of experience creating digital solutions 
             that make a difference. I love turning complex problems into simple, beautiful designs.
           </p>
         </div>
 
         {/* Professional Summary */}
-        <div className={`mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}>
+        <div className={`mb-16 ${getAnimationClass()}`}>
           <Card className="hover-lift border-0 shadow-xl bg-white/80 backdrop-blur-sm">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-4 gradient-text">Professional Summary</h3>
@@ -152,7 +166,7 @@ const About = () => {
         </div>
 
         {/* Achievements */}
-        <div className={`mb-16 transition-all duration-1000 delay-400 ${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
+        <div className={`mb-16 ${getAnimationClass()}`}>
           <h3 className="text-3xl font-bold text-center mb-12 font-display">Key Achievements</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {achievements.map((achievement, index) => (
@@ -168,7 +182,7 @@ const About = () => {
         </div>
 
         {/* Experience */}
-        <div className={`mb-16 transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+        <div className={`mb-16 ${getAnimationClass()}`}>
           <h3 className="text-3xl font-bold text-center mb-12 font-display">Professional Experience</h3>
           <div className="space-y-8">
             {experiences.map((exp, index) => (
@@ -204,7 +218,7 @@ const About = () => {
         </div>
 
         {/* Education */}
-        <div className={`mb-16 transition-all duration-1000 delay-600 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
+        <div className={`mb-16 ${getAnimationClass()}`}>
           <h3 className="text-3xl font-bold text-center mb-12 font-display">Education</h3>
           <div className="grid md:grid-cols-2 gap-8">
             {education.map((edu, index) => (
@@ -230,7 +244,7 @@ const About = () => {
         </div>
 
         {/* Skills Section */}
-        <div className={`bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl transition-all duration-1000 delay-700 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}>
+        <div className={`bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl ${getAnimationClass()}`}>
           <h3 className="text-3xl font-bold text-center mb-12 font-display gradient-text">Skills & Technologies</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {Object.entries(skills).map(([category, items]) => (
@@ -249,7 +263,7 @@ const About = () => {
                       <div className="w-full bg-gray-200 rounded-full h-2">
                         <div
                           className="bg-gradient-to-r from-purple-600 to-blue-600 h-2 rounded-full transition-all duration-1000 ease-out"
-                          style={{ width: isVisible ? `${skill.level}%` : '0%' }}
+                          style={{ width: `${skill.level}%` }}
                         ></div>
                       </div>
                     </div>
