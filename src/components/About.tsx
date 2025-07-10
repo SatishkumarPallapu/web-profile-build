@@ -7,10 +7,9 @@ const About = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Set a fallback to show content after a short delay for mobile devices
     const fallbackTimer = setTimeout(() => {
       setIsVisible(true);
-    }, 500);
+    }, 100);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -19,7 +18,7 @@ const About = () => {
           clearTimeout(fallbackTimer);
         }
       },
-      { threshold: 0.1, rootMargin: '50px' } // Reduced threshold and added margin for better mobile detection
+      { threshold: 0.1, rootMargin: '50px' }
     );
 
     const aboutSection = document.getElementById('about');
@@ -92,7 +91,8 @@ const About = () => {
       role: 'Software Engineer',
       duration: 'Jan 2022 - Nov 2023',
       location: 'Hyderabad',
-      logo: '🏢',
+      logo: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=64&h=64&fit=crop&crop=center',
+      logoAlt: 'Persistent Systems Logo',
       highlights: [
         'Delivered responsive, cross-browser compatible websites with faster load times',
         'Implemented lazy loading concepts improving application performance',
@@ -105,7 +105,8 @@ const About = () => {
       role: 'Software Engineer',
       duration: 'Dec 2019 - Aug 2020',
       location: 'Chennai',
-      logo: '⚡',
+      logo: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=64&h=64&fit=crop&crop=center',
+      logoAlt: 'Urjanet Energy Solutions Logo',
       highlights: [
         'Collected and organized statistical information for business analysis',
         'Extracted performance data from CSV files in JSON format',
@@ -140,17 +141,17 @@ const About = () => {
     <section id="about" className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-6 font-display ${getAnimationClass()}`}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display opacity-100">
             About <span className="gradient-text">Me</span>
           </h2>
-          <p className={`text-xl text-gray-600 max-w-3xl mx-auto ${getAnimationClass()}`}>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto opacity-100">
             Passionate Fullstack Developer (MEAN/MERN) with 2+ years of experience creating digital solutions 
             that make a difference. I love turning complex problems into simple, beautiful designs.
           </p>
         </div>
 
         {/* Professional Summary */}
-        <div className={`mb-16 ${getAnimationClass()}`}>
+        <div className="mb-16 opacity-100">
           <Card className="hover-lift border-0 shadow-xl bg-white/80 backdrop-blur-sm">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-4 gradient-text">Professional Summary</h3>
@@ -166,7 +167,7 @@ const About = () => {
         </div>
 
         {/* Achievements */}
-        <div className={`mb-16 ${getAnimationClass()}`}>
+        <div className="mb-16 opacity-100">
           <h3 className="text-3xl font-bold text-center mb-12 font-display">Key Achievements</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {achievements.map((achievement, index) => (
@@ -182,14 +183,23 @@ const About = () => {
         </div>
 
         {/* Experience */}
-        <div className={`mb-16 ${getAnimationClass()}`}>
+        <div className="mb-16 opacity-100">
           <h3 className="text-3xl font-bold text-center mb-12 font-display">Professional Experience</h3>
           <div className="space-y-8">
             {experiences.map((exp, index) => (
               <Card key={index} className="hover-lift border-0 shadow-xl overflow-hidden">
                 <CardContent className="p-8">
                   <div className="flex items-start gap-6">
-                    <div className="text-4xl">{exp.logo}</div>
+                    <div className="flex-shrink-0">
+                      <img 
+                        src={exp.logo} 
+                        alt={exp.logoAlt}
+                        className="w-16 h-16 rounded-lg object-cover border-2 border-gray-200 shadow-sm"
+                        onError={(e) => {
+                          e.currentTarget.src = 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=64&h=64&fit=crop&crop=center';
+                        }}
+                      />
+                    </div>
                     <div className="flex-1">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                         <div>
@@ -218,7 +228,7 @@ const About = () => {
         </div>
 
         {/* Education */}
-        <div className={`mb-16 ${getAnimationClass()}`}>
+        <div className="mb-16 opacity-100">
           <h3 className="text-3xl font-bold text-center mb-12 font-display">Education</h3>
           <div className="grid md:grid-cols-2 gap-8">
             {education.map((edu, index) => (
@@ -244,7 +254,7 @@ const About = () => {
         </div>
 
         {/* Skills Section */}
-        <div className={`bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl ${getAnimationClass()}`}>
+        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl opacity-100">
           <h3 className="text-3xl font-bold text-center mb-12 font-display gradient-text">Skills & Technologies</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {Object.entries(skills).map(([category, items]) => (
